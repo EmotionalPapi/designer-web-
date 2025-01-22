@@ -1,0 +1,569 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Lato", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+html{
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+h1{
+    font-size: clamp(20px,5vw,50px);
+}
+body{
+    background-color: #000423;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 6rem;
+    box-sizing: inherit;
+
+}
+.container{
+   
+    padding: 0 10rem ;
+    display: flex;
+    display: inline;
+    gap: .5rem;
+    height: 20rem;
+}
+
+.left{
+    align-content: center;
+    border-radius: 20px; 
+    padding:1rem;
+    color: white;
+    display:flex;
+    justify-content: center;
+    background-color: #0D1321;
+    margin: 0 auto;
+    width: 19rem;
+    position: relative;
+    margin-bottom: 1rem;
+
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.left::after, .left::before{
+    
+    content:'' ;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 70%,blue);
+    top: 50%;
+    left: 50;
+    translate: 0% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 20px; 
+    animation: 3s spin linear infinite;
+}
+@keyframes spin{
+    from {
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+.left::before{
+    filter: blur(1.5rem);
+    opacity: .5;
+}
+
+.right{
+    padding:0 2rem;
+    gap: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0s ease-in-out 0ms;
+}
+
+ul{
+   list-style: none;
+}
+ul li{
+    display: inline-block;
+    
+}
+.card{
+    width: clamp(100px,100vw,120px);
+    height: 10rem;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px black ;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 20px;
+}
+
+p{
+
+    font-size: clamp(10px,2.5vw,15px);
+}
+
+.card p{
+
+    font-size: clamp(10px,2.5vw,15px);
+}
+header{
+    background-color: #0D1321;
+
+}
+li{
+    list-style: none;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.navbar{
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;    
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+.nav-branding{
+    font-size: clamp(20px,5vw,50px);
+} 
+.nav-link{
+    transition: .7s ease;
+}
+.nav-link:hover{
+    color: #6D6875;
+}
+.hamburgeru{
+    display: none;
+    cursor: pointer;
+}
+.bar{
+display: block;
+width: 25px;
+height: 3px;
+margin: 5px;
+margin: 5px auto;
+-webkit-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+background-color: white;
+}
+
+.footer{
+   margin-top: 3rem;
+    background-color: #0D1321;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.copy{
+    color: white;
+}
+.footer{
+    height: 5rem;
+    padding: 1rem;
+}
+.socials{
+    display: flex;
+    justify-content: center;
+    
+}
+.footerBottom{
+    display: flex;
+    justify-content: center;
+}
+.footer a{
+    color:black;
+    background-color: white;
+    gap:1rem;
+    padding: .5rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-radius: 25%;
+    margin: 1rem
+}
+.socials a:hover{
+    background-color: #6D6875;
+    transition: .3s;
+}
+.socials a :hover i{
+    color: white;
+}
+.footer p{
+    font-size: clamp(5px,2.5vw,12px);
+}
+.right button{
+    border-radius:20px ;
+    cursor: pointer;
+}
+
+/*nike code*/
+.nike-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.nike-pop-up >*{
+  margin:15px 0px  
+}
+.nike-pop-up.close-btn{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+
+}
+body.active-popup .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+body.active-popup{
+    overflowr: hidden; 
+}
+body.active-popup .nike-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+/*balenciaga code*/
+.balancia-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.balancia-pop-up >*{
+  margin:15px 0px  
+}
+.balancia-pop-up.close-btn1{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+body.active-popup1{
+    overflow: hidden; 
+}
+ body.active-popup1 .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+ body.active-popup1 .balancia-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+
+
+
+
+ /*puma code*/
+ .puma-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.puma-pop-up >*{
+  margin:15px 0px  
+}
+.puma-pop-up.close-btn2{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+body.active-popup2{
+    overflow: hidden; 
+}
+ body.active-popup2 .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+ body.active-popup2 .puma-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+
+
+
+
+ /*adidas code*/
+.adidas-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.adidas-pop-up >*{
+  margin:15px 0px  
+}
+.adidas-pop-up.close-btn3{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+
+}
+body.active-popup3 .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+ body.active-popup3 .adidas-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+
+
+/*lv code*/
+.lv-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.lv-pop-up >*{
+  margin:15px 0px  
+}
+.lv-pop-up.close-btn4{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+body.active-popup4{
+    overflow: hidden; 
+}
+ body.active-popup4 .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+ body.active-popup4 .lv-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+
+
+
+/*chanel code*/
+.chanel-pop-up {
+    color: white;
+    position: absolute;
+    top:-100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    padding:1rem;
+    background: #0D1321;
+    border-radius:10px ;
+    box-shadow:0px 5px 5px black ;
+    margin-top:-25px ;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 3000ms ease-in-out;
+}
+.chanel-pop-up >*{
+  margin:15px 0px  
+}
+.lv-pop-up.close-btn4{
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   height: 20px;
+   background:#eee ; 
+   color:#111;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+body.active-popup5{
+    overflow: hidden; 
+}
+ body.active-popup5 .all{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ }
+ body.active-popup5 .chanel-pop-up{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0s,
+    opacity 3000ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+/*
+body.active-popup .navbar{
+   filter: blur(5px);
+   background: rgb(0,0,0,0,0.08); 
+   transition: filter 0s ease-in-out 0ms;
+
+}
+body.active-popup .footer{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ 
+ }
+ body.active-popup .left{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ 
+ }
+ body.active-popup .right{
+    filter: blur(5px);
+    background: rgb(0,0,0,0,0.08); 
+    transition: filter 0s ease-in-out 0ms;
+ 
+ }
+    */
+
+
+
+
+
+
+
+
+.close-btn{
+    border-radius: .3rem;
+}
+
+
+@media(min-width:1024px){
+    .hamburger{
+        display: none;
+    }
+}
+
+@media(max-width:768px){
+    .hamburger{
+        display: block;
+    }
+}
